@@ -1,0 +1,188 @@
+//-función para incrementar la variable universal cp +1 y cambiar el estado de pantalla-//
+void camp()
+{
+  cp+=1;
+  if(pantalla==1)
+  {
+    pp();
+  }
+  if (pantalla==2)
+  {
+   ss();
+  }
+  if (pantalla==3)
+  {
+    pb();
+  }
+  if (pantalla==4)
+ {
+   sr();
+ }
+}
+
+
+//finción pantalla principal (pp)--------------------------------------------------->>
+
+void pp()
+{
+  fill(0); 
+  textSize(18);
+  text("Bienvenido a",150,100);
+    fill(random(255),random(255),random(255));
+    textSize(20);
+    text("NEW WORLD",150,200);
+    fill(255,0,0); 
+   textSize(14);
+   text("para continuar ¡¡¡puchurrale al ENTER!!!",80,300);
+   textSize(12);
+   text("si no te agarra el ENTER, dale click en la pantalla primero",45,350);
+  if(key==ENTER){
+    pantalla=2;
+  }
+}
+
+
+//función Screen Sellection (ss)---------------------------------------------------->>
+void ss()//en este void use a los personajes xd------------------------------------->>
+{
+  //reacomodo de personajes para seleccionar
+  pushMatrix();
+  translate(50,100);
+  zeux.show();
+  popMatrix();
+  
+  pushMatrix();
+  translate(125,60);
+  scale(0.75);
+  nubix.show();
+  popMatrix();
+  
+  pushMatrix();
+  translate((5-40),120);
+  scale(0.85);
+  suxje.show();
+  popMatrix();
+  
+  pushMatrix();
+  translate(85,78);
+  xoloxtli.show();
+  popMatrix();
+  
+  pushMatrix();
+  translate((50-60),(100-100));
+  tiux.show();
+  popMatrix();
+  //selección para p1--------------------------------------------------------------->>
+  if(keyPressed)
+  {
+    if(key=='q' || key=='Q')
+      {
+        uno=zeux;
+        p1=true;
+      }
+    if(key=='w' || key=='W')
+      {
+        uno=nubix;
+        p1=true;
+      }
+    if(key=='e' || key=='E')
+      {
+        uno=suxje;
+        p1=true;
+      }
+    if(key=='r' || key=='R')
+      {
+        uno=xoloxtli;
+        p1=true;
+      }
+    if(key=='t' || key=='T')
+      {
+        uno=tiux;
+        p1=true;
+      }  
+    
+  }
+  
+  //selección para p2--------------------------------------------------------------->>
+  if(keyPressed)
+  {
+    if(key=='a' || key=='A')
+      {
+        dos=zeux;
+        p2=true;
+      }
+    if(key=='s' || key=='S')
+      {
+        dos=nubix;
+        p2=true;
+      }
+    if(key=='d' || key=='D')
+      {
+        dos=suxje;
+        p2=true;
+      }
+    if(key=='f' || key=='F')
+      {
+        dos=xoloxtli;
+        p2=true;
+      }
+    if(key=='g' || key=='G')
+      {
+        dos=tiux;
+        p2=true;
+      }  
+    
+  }
+  
+  //Salto de pantalla a (pb)-------------------------------------------------------->>
+  if(p1 && p2 == true)
+  {
+     pantalla=3;  ///jajajaja pense que no iba a funcionar 2:00 AM     
+  }
+
+}
+
+
+
+
+
+
+//función pantalla Batalla (pb)----------------------------------------------------->>
+void pb()
+{
+  
+
+}
+
+
+
+
+
+
+
+//función secreen return (sr)------------------------------------------------------>>
+void sr()
+{
+  textSize(16);
+  text("Tú eres el personaje que ha dominado este nuevo mundo",10,50);
+  textSize(10);
+  text("¿quieres volver a probar tu suerte? presiona (y)?",10,120);
+  textSize(15);
+  text("o tal vez solo quieras apretar (n)",80,140);
+  if(keyPressed)
+  {
+    if(key=='y' || key=='Y')
+    {
+    pantalla=2;
+    }
+    if(key=='n' || key=='N')
+    {
+      textSize(12);
+      frameRate(0.35);
+      text("cobarde, pero inteligente, sabes defender tus posesiones",10,350);
+      text("Fin del juego",200,400);
+      exit();
+      
+    }
+  }
+}
